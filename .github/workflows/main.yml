@@ -1,0 +1,28 @@
+name: Create exe file
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  exe:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Pkg Action
+      uses: lando/pkg-action@v2
+      with:
+        entrypoint: bin/index.js
+        arch: x64
+        config: package.json
+        node-version: node16
+        os: win
+    - name: Create Release
+      uses: ncipollo/release-action@v1.11.2
+      with:
+        # An optional body file for the release. This should be the path to the file
+        bodyFile: exe/credr-terminal.exe
+        generateReleaseNotes: true
+      
