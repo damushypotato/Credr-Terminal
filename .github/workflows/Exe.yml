@@ -1,4 +1,4 @@
-- name: Pkg Action
+- name: Exe
   # You may pin to the exact commit or the version.
   # uses: lando/pkg-action@0d0a00d1f6c893ed81cf326a5a869e3a5da358ae
   uses: lando/pkg-action@v2
