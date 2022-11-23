@@ -25,6 +25,8 @@ jobs:
       run: npm run exe
       
     - name: Release
-      uses: yakuhzi/release-asset@v1.2.3
+      uses: djnicholson/release-action@v2.10
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        asset-name: Credr Terminal
         file: exe/credr-terminal.exe
