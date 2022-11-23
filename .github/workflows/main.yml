@@ -11,18 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v3.5.1
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: 19.1.0    
-        
+        node-version: 19.1.0
     
-    - name: Build exe
-      run: ls -a
-    
-    - name: Create Release
-      uses: ncipollo/release-action@v1.11.2
-      with:
-        bodyFile: exe/credr-terminal.exe
-        generateReleaseNotes: true
-
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build
+      run: npm run exe
+      
+    - name: List
+      run: ls exe
