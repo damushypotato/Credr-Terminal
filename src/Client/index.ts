@@ -13,12 +13,14 @@ export enum State {
 export default class Client {
     baudRate: number = 57600;
     setStateTimeout: number = 100;
+    debug: boolean = false;
+    
+    state: State;
+    ready: boolean = false;
+    
     port: SerialPort;
     parser: ReadlineParser = new ReadlineParser({ delimiter: '\r\n' });
-    ready: boolean = false;
-    debug: boolean = false;
     lcd: LCD = new LCD(this);
-    state: State;
 
     constructor(baudRate?: number, debug?: boolean, setStateTimeout?: number) {
         this.baudRate = baudRate || this.baudRate;
