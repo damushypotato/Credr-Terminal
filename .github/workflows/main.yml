@@ -11,18 +11,17 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - name: Pkg Action
-      uses: lando/pkg-action@v2
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3.5.1
       with:
-        entrypoint: bin/index.js
-        arch: x64
-        config: package.json
-        node-version: node16
-        os: win
+        node-version: 19.1.0
+    
+    - name: Build exe
+      run: npm i && npm run exe
+    
     - name: Create Release
       uses: ncipollo/release-action@v1.11.2
       with:
-        # An optional body file for the release. This should be the path to the file
         bodyFile: exe/credr-terminal.exe
         generateReleaseNotes: true
       
