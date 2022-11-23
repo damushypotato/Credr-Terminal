@@ -11,17 +11,9 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v3.5.1
-      with:
-        node-version: 19.1.0
+      
+
     
     - name: Build exe
-      run: npm i && npm run exe
+      run: ls -a
     
-    - name: Create Release
-      uses: ncipollo/release-action@v1.11.2
-      with:
-        bodyFile: exe/credr-terminal.exe
-        generateReleaseNotes: true
-      
