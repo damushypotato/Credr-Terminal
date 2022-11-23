@@ -28,5 +28,5 @@ jobs:
       uses: djnicholson/release-action@v2.10
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        asset-name: Credr Terminal
+        asset-name: 'CredrTerminal.exe'
         file: exe/credr-terminal.exe
